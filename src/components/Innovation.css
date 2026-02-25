@@ -1,0 +1,189 @@
+.innovation-section {
+  background-color: #f7fbfa;
+  /* Very light background pattern color */
+  padding: 6rem 0;
+  text-align: center;
+  color: #002d38;
+  position: relative;
+  overflow: hidden;
+  /* subtle pattern if possible, standard linear gradient for now */
+  background-image: url('/images/projects/zig-zag-bg.svg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.innovation-container {
+  max-width: 1400px;
+  /* Wider container for the diagram */
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.innovation-title {
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: #004d5a;
+  margin-bottom: 4rem;
+  display: inline-block;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .innovation-title {
+    font-size: 3.5rem;
+  }
+}
+
+.innovation-title-underline {
+  position: absolute;
+  bottom: -1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 1px;
+  background-color: #004d5a;
+  opacity: 0.5;
+}
+
+.innovation-diagram-area {
+  position: relative;
+  width: 100%;
+  min-height: 800px;
+  /* Space for the image and outer callouts */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.innovation-image-wrapper {
+  position: relative;
+  width: 60%;
+  /* Center image takes up ~60% of width */
+  max-width: 800px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  z-index: 5;
+}
+
+.innovation-main-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.callouts-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  pointer-events: none;
+  /* Let clicks pass through if needed */
+}
+
+.callout-card {
+  position: absolute;
+  background-color: #eaf5f5;
+  border: 1px solid #b2d8d8;
+  border-radius: 40px;
+  /* Pill shape */
+  padding: 0.75rem 1.25rem;
+  min-width: 200px;
+  max-width: 260px;
+  text-align: left;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  pointer-events: auto;
+  transition: transform 0.3s ease;
+}
+
+.callout-card:hover {
+  transform: translate(-50%, -50%) scale(1.05) !important;
+  z-index: 20;
+}
+
+.callout-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 0.25rem;
+}
+
+.callout-desc {
+  font-size: 0.85rem;
+  color: #444;
+  line-height: 1.4;
+}
+
+.callout-connector {
+  position: absolute;
+  z-index: -1;
+  /* Connector lines are styled inline via React for specific routing */
+}
+
+.callout-target-dot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: #004d5a;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 15;
+}
+
+.callout-target-dot::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: rgba(0, 77, 90, 0.2);
+}
+
+/* Mobile Fallback - stack them instead of raw absolute positioning which breaks on small screens */
+@media (max-width: 1199px) {
+  .innovation-diagram-area {
+    flex-direction: column;
+    height: auto;
+    min-height: auto;
+  }
+
+  .innovation-image-wrapper {
+    width: 90%;
+    margin-bottom: 2rem;
+  }
+
+  .callouts-layer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .callout-card {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    width: 90%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .callout-card:hover {
+    transform: scale(1.05) !important;
+  }
+
+  .callout-connector,
+  .callout-target-dot {
+    display: none;
+    /* Hide confusing lines on mobile stack */
+  }
+}

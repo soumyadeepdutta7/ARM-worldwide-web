@@ -1,0 +1,210 @@
+.reads-section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding-bottom: 5rem;
+}
+
+/* Background Split Logic */
+.reads-bg-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60%;
+  background-color: #eef6f9;
+  /* Light blueish tint */
+  z-index: 0;
+}
+
+.reads-pattern-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 1;
+  pointer-events: none;
+  background-image: url('/images/projects/zig-zag-bg.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.reads-bg-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 48%;
+  /* Adjust to intercept the cards neatly */
+  background-color: #003946;
+  /* Dark teal */
+  z-index: 1;
+  /* Ensure bottom bg can layer properly */
+}
+
+/* Container & Title */
+.reads-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+  /* Content above backgrounds */
+  padding-top: 5rem;
+}
+
+.reads-title {
+  color: #004d5a;
+  font-size: 2.25rem;
+  font-weight: 400;
+  text-align: center;
+  align-self: center;
+  margin-bottom: 3.5rem;
+  display: inline-block;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .reads-title {
+    font-size: 2.75rem;
+  }
+}
+
+.reads-title-underline {
+  position: absolute;
+  bottom: -0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 320px;
+  height: 1px;
+  background-color: rgba(0, 77, 90, 0.4);
+}
+
+/* Carousel wrapper to allow full bleed */
+.reads-carousel-wrapper {
+  position: relative;
+  z-index: 2;
+  /* Cards above backgrounds */
+  width: 100%;
+}
+
+.reads-scroll-container {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  /* Full bleed padding logic */
+  padding: 1rem max(1rem, calc((100vw - 1280px) / 2 + 1rem)) 2rem max(1rem, calc((100vw - 1280px) / 2 + 1rem));
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.reads-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+@media (min-width: 1300px) {
+  .reads-scroll-container {
+    justify-content: center;
+    /* Center if there are exactly 4 cards fitting on the screen */
+    padding: 0 0 2rem 0;
+  }
+}
+
+/* Cards */
+.read-card {
+  flex: 0 0 320px;
+  width: 320px;
+  height: 400px;
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  scroll-snap-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+@media (min-width: 768px) {
+  .read-card {
+    flex: 0 0 310px;
+    width: 310px;
+    height: 420px;
+  }
+}
+
+.read-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Glassmorphism overlay at bottom of card */
+.read-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 110px;
+  background: rgba(0, 0, 0, 0.3);
+  /* Semi-transparent overlay */
+  backdrop-filter: blur(15px);
+  /* Strong blur effect */
+  -webkit-backdrop-filter: blur(15px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.25rem 1.5rem;
+}
+
+.read-card-title {
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.4;
+  margin-bottom: 0.4rem;
+}
+
+.read-more-link {
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 400;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  display: inline-flex;
+  align-items: center;
+  transition: opacity 0.3s;
+}
+
+.read-more-link:hover {
+  opacity: 0.8;
+}
+
+/* Bottom Controls / Link */
+.reads-bottom-container {
+  position: relative;
+  z-index: 2;
+}
+
+.explore-more-container {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+}
+
+.explore-more-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  padding-bottom: 2px;
+  border-bottom: 1px solid white;
+  transition: opacity 0.3s ease;
+}
+
+.explore-more-link:hover {
+  opacity: 0.7;
+}

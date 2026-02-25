@@ -1,0 +1,172 @@
+.expert-approved-section {
+    background-color: #E6F4FA;
+    /* light blue-grey matching reference */
+    padding: 5rem 0 6rem 0;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    z-index: 10;
+}
+
+.expert-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.expert-title {
+    color: #004d5a;
+    font-size: 2.25rem;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 4.5rem;
+    display: inline-block;
+    position: relative;
+}
+
+@media (min-width: 768px) {
+    .expert-title {
+        font-size: 2.75rem;
+    }
+}
+
+.expert-title-underline {
+    position: absolute;
+    bottom: -0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120%;
+    max-width: 480px;
+    height: 1px;
+    background-color: rgba(0, 77, 90, 0.4);
+}
+
+.expert-carousel-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    height: 580px;
+    margin: 0 auto;
+}
+
+/* Base Card Styles */
+.expert-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 330px;
+    height: 580px;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), z-index 0.6s, opacity 0.6s;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    background: #000;
+}
+
+/* 3D Transform States based on offset */
+/* Active Center Card */
+.expert-card.offset-0 {
+    transform: translate(-50%, -50%) scale(1);
+    z-index: 10;
+    opacity: 1;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+/* Immediate Right sibling */
+.expert-card.offset-1 {
+    transform: translate(25%, -50%) scale(0.85);
+    z-index: 9;
+    opacity: 1;
+}
+
+/* Immediate Left sibling */
+.expert-card.offset-m1 {
+    transform: translate(-125%, -50%) scale(0.85);
+    z-index: 9;
+    opacity: 1;
+}
+
+/* Second Right sibling */
+.expert-card.offset-2 {
+    transform: translate(85%, -50%) scale(0.72);
+    z-index: 8;
+    opacity: 1;
+}
+
+/* Second Left sibling */
+.expert-card.offset-m2 {
+    transform: translate(-185%, -50%) scale(0.72);
+    z-index: 8;
+    opacity: 1;
+}
+
+/* Hidden Fallback for > 5 cards */
+.expert-card:not(.offset-0):not(.offset-1):not(.offset-m1):not(.offset-2):not(.offset-m2) {
+    transform: translate(-50%, -50%) scale(0.5);
+    z-index: 1;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.expert-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+/* Dim non-active cards slightly */
+.expert-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.35);
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    z-index: 2;
+}
+
+.expert-card.offset-0 .expert-card-overlay {
+    opacity: 0;
+}
+
+.expert-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 8px;
+}
+
+/* Controls */
+.expert-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 3.5rem;
+}
+
+.dark-btn {
+    background-color: #004d5a;
+    border: none;
+}
+
+.dark-btn:hover {
+    background-color: #003640;
+}
+
+.dark-dots .dot {
+    border-color: #004d5a;
+}
+
+.dark-dots .dot.active {
+    background-color: #004d5a;
+}

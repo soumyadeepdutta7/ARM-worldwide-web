@@ -1,0 +1,34 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar';
+import Hero from '../components/Hero';
+import Features from '../components/Features';
+import Innovation from '../components/Innovation';
+import WhyChoose from '../components/WhyChoose';
+import SpacesComeAlive from '../components/SpacesComeAlive';
+import CraftedSpaces from '../components/CraftedSpaces';
+import Testimonials from '../components/Testimonials';
+import ExpertApproved from '../components/ExpertApproved';
+import ThoughtfulReads from '../components/ThoughtfulReads';
+import ExploreWindows from '../components/ExploreWindows';
+import FAQ from '../components/FAQ';
+import Footer from '../components/Footer';
+---
+
+<Layout title="Eternia by Hindalco | Luxury Aluminium Windows">
+  <Navbar client:load />
+  <main>
+    <Hero />
+    <Features client:load />
+    <Innovation client:load />
+    <WhyChoose client:load />
+    <SpacesComeAlive client:load />
+    <CraftedSpaces client:load />
+    <Testimonials client:load />
+    <ExpertApproved client:load />
+    <ThoughtfulReads client:load />
+    <ExploreWindows client:load />
+    <FAQ client:load />
+  </main>
+  <Footer client:load />
+</Layout>

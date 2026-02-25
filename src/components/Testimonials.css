@@ -1,0 +1,140 @@
+.testimonials-section {
+  background-color: #003946;
+  color: white;
+  padding: 4rem 0 6rem 0;
+  width: 100%;
+}
+
+.testimonials-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Title Styling */
+.testimonials-title {
+  color: white;
+  font-size: 2.25rem;
+  font-weight: 400;
+  text-align: center;
+  align-self: center;
+  margin-bottom: 4rem;
+  display: inline-block;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .testimonials-title {
+    font-size: 2.75rem;
+  }
+}
+
+.testimonials-title-underline {
+  position: absolute;
+  bottom: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 420px;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Carousel container */
+.testimonials-carousel-wrapper {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.testimonials-scroll-container {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  /* Use max to ensure at least 1rem padding on small screens, and align with 1280px container on large screens */
+  padding: 1rem max(1rem, calc((100vw - 1280px) / 2 + 1rem)) 2rem max(1rem, calc((100vw - 1280px) / 2 + 1rem));
+  /* Hide scrollbar */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.testimonials-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Testimonial Cards */
+.testimonial-card {
+  flex: 0 0 380px;
+  width: 380px;
+  background: rgba(255, 255, 255, 0.08);
+  /* Flat semi-transparent white */
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 2px;
+  padding: 2.5rem 2rem;
+  scroll-snap-align: center;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+@media (min-width: 768px) {
+  .testimonial-card {
+    flex: 0 0 380px;
+    width: 380px;
+  }
+}
+
+
+.quote-icon {
+  margin-bottom: 1.25rem;
+}
+
+.testimonial-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2rem;
+  flex-grow: 1;
+  /* Pushes author to bottom if card heights vary */
+}
+
+.testimonial-author {
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin: 0;
+  color: white;
+}
+
+/* Controls */
+.testimonials-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+
+/* Note: Button styles are identical to CraftedSpaces and could be shared globally, 
+   but kept here for component isolation */
+
+/* Explore More Link */
+.explore-more-container {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.explore-more-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  padding-bottom: 2px;
+  border-bottom: 1px solid white;
+  transition: opacity 0.3s ease;
+}
+
+.explore-more-link:hover {
+  opacity: 0.7;
+}

@@ -1,0 +1,187 @@
+.why-choose-section {
+  background-color: #002633;
+  /* Dark teal background matching design */
+  padding: 5rem 0;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.why-title {
+  font-size: 2.5rem;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 3.5rem;
+  display: inline-block;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@media (min-width: 768px) {
+  .why-title {
+    font-size: 3rem;
+  }
+}
+
+.why-title-underline {
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #a3c4c4;
+}
+
+/* Container for the cards */
+.reasons-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  gap: 1.5rem;
+  padding-bottom: 2rem;
+  /* Hide scrollbar for cleaner look */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.reasons-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* The Cards */
+.reason-card {
+  flex: 0 0 85%;
+  /* Take up most of screen on mobile to allow peeking next */
+  min-width: 280px;
+  max-width: 400px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.01) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  padding: 1.5rem;
+  scroll-snap-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2), inset 0 0 40px rgba(255, 255, 255, 0.05);
+  position: relative;
+}
+
+/* Desktop Grid Override */
+@media (min-width: 1024px) {
+  .reasons-container {
+    display: flex;
+    justify-content: center;
+    overflow-x: visible;
+    gap: 1.25rem;
+    padding-bottom: 0;
+  }
+
+  .reason-card {
+    flex: 0 0 320px;
+    /* Fixed width for desktop to be wider for single-line titles */
+    max-width: 320px;
+    min-width: 320px;
+  }
+
+  .card-title {
+    white-space: nowrap;
+  }
+
+  .mobile-pagination {
+    display: none !important;
+  }
+}
+
+/* Card Headers & Logos */
+.card-header-logo-container {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.card-logo-img {
+  width: auto;
+  max-width: 133.33px;
+  height: 50px;
+  object-fit: contain;
+  opacity: 1;
+}
+
+.card-logo-img.wide {
+  max-width: 228.88px;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+  color: #ffffff;
+  min-height: 3.5rem;
+  /* Symmetry for multi-line titles */
+  display: flex;
+  align-items: center;
+}
+
+.card-divider {
+  height: 1px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  margin-bottom: 2rem;
+}
+
+/* Features List */
+.card-features {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.feature-icon-wrapper {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.feature-text {
+  flex: 1;
+}
+
+.check-icon rect {
+  transition: fill 0.2s ease;
+}
+
+.reason-card:hover .check-icon rect {
+  fill: rgba(59, 130, 246, 0.3);
+}
+
+/* Mobile Pagination */
+.mobile-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.pagination-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pagination-dot.active {
+  background-color: #ffffff;
+  transform: scale(1.2);
+}
