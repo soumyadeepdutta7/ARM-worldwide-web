@@ -97,7 +97,7 @@
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   /* Full bleed padding logic */
-  padding: 1rem max(1rem, calc((100vw - 1280px) / 2 + 1rem)) 2rem max(1rem, calc((100vw - 1280px) / 2 + 1rem));
+  padding: 1rem max(1rem, calc((100% - 1280px) / 2 + 1rem)) 2rem max(1rem, calc((100% - 1280px) / 2 + 1rem));
   scrollbar-width: none;
   -ms-overflow-style: none;
 }

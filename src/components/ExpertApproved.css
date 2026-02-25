@@ -35,7 +35,7 @@
     bottom: -0.75rem;
     left: 50%;
     transform: translateX(-50%);
-    width: 120%;
+    width: 100%;
     max-width: 480px;
     height: 1px;
     background-color: rgba(0, 77, 90, 0.4);
