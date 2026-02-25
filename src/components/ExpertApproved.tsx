@@ -67,7 +67,7 @@ export default function ExpertApproved() {
                                 <img
                                     src={item.url}
                                     alt={`Slide ${item.id}`}
-                                    className="expert-video" // Keeping class name for layout consistency
+                                    className="expert-video" 
                                 />
                                 {/* Dark overlay for side cards */}
                                 <div className="expert-card-overlay"></div>

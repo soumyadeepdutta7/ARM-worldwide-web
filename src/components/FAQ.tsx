@@ -47,7 +47,7 @@ const faqs: FAQItem[] = [
 ];
 
 export default function FAQ() {
-    const [openId, setOpenId] = useState<string | null>('faq-1'); // Default open first
+    const [openId, setOpenId] = useState<string | null>('faq-1'); 
 
     const toggleFaq = (id: string) => {
         setOpenId(openId === id ? null : id);
