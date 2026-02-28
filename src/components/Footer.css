@@ -242,3 +242,20 @@
         transform: translateY(0);
     }
 }
+
+.footer-disclaimer {
+    font-size: 0.75rem;
+    line-height: 1.5;
+    text-align: left;
+    opacity: 0.8;
+}
+
+@media (max-width: 767px) {
+    .footer-bottom {
+        display: none !important;
+    }
+
+    .footer-disclaimer {
+        display: none !important;
+    }
+}

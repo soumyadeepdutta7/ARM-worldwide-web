@@ -1,12 +1,10 @@
 .innovation-section {
   background-color: #f7fbfa;
-  /* Very light background pattern color */
   padding: 6rem 0;
   text-align: center;
   color: #002d38;
   position: relative;
   overflow: hidden;
-  /* subtle pattern if possible, standard linear gradient for now */
   background-image: url('/images/projects/zig-zag-bg.svg');
   background-position: center;
   background-size: cover;
@@ -15,7 +13,6 @@
 
 .innovation-container {
   max-width: 1400px;
-  /* Wider container for the diagram */
   margin: 0 auto;
   padding: 0 1.5rem;
   position: relative;
@@ -23,8 +20,8 @@
 }
 
 .innovation-title {
-  font-size: 2.5rem;
-  font-weight: 400;
+  font-size: 2.2rem;
+  font-weight: 500;
   color: #004d5a;
   margin-bottom: 4rem;
   display: inline-block;
@@ -51,28 +48,52 @@
 .innovation-diagram-area {
   position: relative;
   width: 100%;
-  min-height: 800px;
-  /* Space for the image and outer callouts */
+  aspect-ratio: 16/9;
+  max-height: 800px;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0 auto;
 }
 
 .innovation-image-wrapper {
   position: relative;
-  width: 60%;
-  /* Center image takes up ~60% of width */
-  max-width: 800px;
-  border-radius: 12px;
+  width: 55%;
+  height: 60%;
+  border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
   z-index: 5;
+  clip-path: inset(0% 0% 5% 0% round 16px);
 }
 
 .innovation-main-image {
   width: 100%;
-  height: auto;
-  display: block;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.15);
+  /* Removes baked-in white borders */
+}
+
+/* SVG Line Layer */
+.innovation-svg-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.innovation-svg-lines line {
+  stroke: #004d5a;
+  stroke-width: 2px;
+}
+
+.innovation-svg-lines circle {
+  fill: #004d5a;
+  r: 4px;
 }
 
 .callouts-layer {
@@ -81,9 +102,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 10;
+  z-index: 15;
   pointer-events: none;
-  /* Let clicks pass through if needed */
 }
 
 .callout-card {
@@ -91,9 +111,8 @@
   background-color: #eaf5f5;
   border: 1px solid #b2d8d8;
   border-radius: 40px;
-  /* Pill shape */
   padding: 0.75rem 1.25rem;
-  min-width: 200px;
+  min-width: 220px;
   max-width: 260px;
   text-align: left;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
@@ -107,7 +126,7 @@
 }
 
 .callout-title {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 700;
   color: #111;
   margin-bottom: 0.25rem;
@@ -119,71 +138,108 @@
   line-height: 1.4;
 }
 
-.callout-connector {
-  position: absolute;
-  z-index: -1;
-  /* Connector lines are styled inline via React for specific routing */
-}
-
 .callout-target-dot {
   position: absolute;
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   background-color: #004d5a;
   border-radius: 50%;
   transform: translate(-50%, -50%);
-  z-index: 15;
+  z-index: 16;
 }
 
-.callout-target-dot::after {
-  content: '';
-  position: absolute;
-  top: -4px;
-  left: -4px;
-  width: 16px;
-  height: 16px;
+/* Mobile Carousel Controls */
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.carousel-nav-btn {
+  background-color: #003b46;
+  color: white;
+  border: none;
   border-radius: 50%;
-  background-color: rgba(0, 77, 90, 0.2);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
 }
 
-/* Mobile Fallback - stack them instead of raw absolute positioning which breaks on small screens */
+.carousel-nav-btn:hover {
+  background-color: #002d38;
+}
+
+.carousel-dots {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #003b46;
+  opacity: 0.3;
+  transition: opacity 0.2s;
+}
+
+.carousel-dot.active {
+  opacity: 1;
+}
+
+/* Mobile Breakpoint */
 @media (max-width: 1199px) {
   .innovation-diagram-area {
-    flex-direction: column;
-    height: auto;
-    min-height: auto;
+    aspect-ratio: auto;
+    height: 700px;
+    /* Fixed height for mobile diagram layout */
+    margin-bottom: 1rem;
   }
 
   .innovation-image-wrapper {
-    width: 90%;
-    margin-bottom: 2rem;
+    width: 95%;
+    height: auto;
+    aspect-ratio: 16/9;
+    clip-path: inset(0% 0% 5% 0% round 16px);
+  }
+
+  .innovation-svg-lines {
+    width: 100%;
+    height: 100%;
   }
 
   .callouts-layer {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    align-items: center;
+    /* Mobile cards are absolute to the diagram area just like desktop */
   }
 
-  .callout-card {
-    position: relative !important;
-    top: auto !important;
-    left: auto !important;
-    transform: none !important;
-    width: 90%;
-    max-width: 400px;
-    margin: 0 auto;
+  .callout-card.mobile-card {
+    min-width: 120px;
+    max-width: 150px;
+    padding: 0.5rem 0.8rem;
+    background-color: #eaf5f5;
+    border-radius: 20px;
   }
 
-  .callout-card:hover {
-    transform: scale(1.05) !important;
-  }
-
-  .callout-connector,
   .callout-target-dot {
-    display: none;
-    /* Hide confusing lines on mobile stack */
+    width: 6px;
+    height: 6px;
+  }
+
+  .callout-card.mobile-card:hover {
+    transform: translate(-50%, -50%) scale(1.02) !important;
+  }
+
+  .callout-title {
+    font-size: 0.85rem;
+  }
+
+  .callout-desc {
+    font-size: 0.75rem;
   }
 }

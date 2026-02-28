@@ -122,7 +122,7 @@ export default function Footer() {
 
             <div className="footer-bottom">
                 <div className="container">
-                    <p>
+                    <p className="footer-disclaimer">
                         *Eternia™, Duranium™ and WiWA© are proprietary to Hindalco Industries Limited. Hindalco Industries Limited has a patent filed right for Duranium alloy. Nothing contained here shall be construed as conferring any license or right under a Hindalco trademark, copyright or patent. Images on the website are indicative. The final product may be different from the images displayed.
                     </p>
                 </div>

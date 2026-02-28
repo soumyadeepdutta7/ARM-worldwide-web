@@ -9,9 +9,8 @@
   --color-glass-border: rgba(255, 255, 255, 0.2);
   --color-text-light: #f3f4f6;
 
-  --font-sans:
-    "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
+  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif, system-ui,
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
 
   --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }

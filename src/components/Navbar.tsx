@@ -46,13 +46,13 @@ export default function Navbar() {
             <div className="nav-item">
               <a href="#news">News and Events</a>
             </div>
-            <div className="nav-item">
-              <a href="#help">Help</a>
-            </div>
           </div>
 
-          {/* CTA Button */}
+          {/* CTA Button and Help */}
           <div className="navbar-actions">
+            <div className="nav-item help-item">
+              <a href="#help">Help</a>
+            </div>
             <button className="btn btn-primary cta-button">
               Book a Consultation
               <ArrowRight className="cta-icon" size={16} />
@@ -102,6 +102,6 @@ export default function Navbar() {
           </div>
         )}
       </div>
-    </nav>
+    </nav >
   );
 }
