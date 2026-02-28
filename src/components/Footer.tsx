@@ -13,13 +13,8 @@ const footerData = [
     {
         title: 'Why Eternia',
         items: [
-            { links: ['Duranium™', 'WiWA©', 'Service and support', 'About Us'] }
-        ]
-    },
-    {
-        title: 'Find the right window',
-        items: [
-            { links: ['Find the right window'] }
+            { links: ['Duranium™', 'WiWA©', 'Service and support', 'About Us'] },
+            { isTitle: true, subtitle: 'Find the right window', links: ['Find the right window'] }
         ]
     },
     {
@@ -107,7 +102,11 @@ export default function Footer() {
                         <div className="footer-links-content">
                             {section.items.map((item, idx) => (
                                 <div key={idx} className="footer-link-group">
-                                    {'subtitle' in item && <h4 className="footer-link-subtitle">{item.subtitle as string}</h4>}
+                                    {'subtitle' in item && (
+                                        <h4 className={('isTitle' in item && item.isTitle) ? "footer-column-title" : "footer-link-subtitle"} style={('isTitle' in item && item.isTitle) ? { marginTop: '1.5rem', marginBottom: '1.5rem', padding: 0 } : {}}>
+                                            {item.subtitle as string}
+                                        </h4>
+                                    )}
                                     <ul className="footer-link-list">
                                         {item.links.map(link => (
                                             <li key={link}><a href="#">{link}</a></li>

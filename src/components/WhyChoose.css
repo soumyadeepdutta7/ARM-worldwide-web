@@ -7,7 +7,7 @@
 }
 
 .why-title {
-  font-size: 2.5rem;
+  font-size: clamp(1.75rem, 8vw, 2.5rem);
   font-weight: 400;
   text-align: center;
   margin-bottom: 3.5rem;
@@ -15,7 +15,8 @@
   position: relative;
   left: 50%;
   transform: translateX(-50%);
-  max-width: 90%;
+  max-width: 100%;
+  white-space: nowrap;
 }
 
 @media (min-width: 768px) {
@@ -26,7 +27,7 @@
 
 .why-title-underline {
   position: absolute;
-  bottom: -0.5rem;
+  bottom: -1.75rem;
   left: 0;
   width: 100%;
   height: 2px;
@@ -57,11 +58,13 @@
   min-width: 280px;
   max-width: 400px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.01) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 6px;
   padding: 1.5rem;
   scroll-snap-align: center;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2), inset 0 0 40px rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   position: relative;
   transition: all 0.3s ease;
   overflow: hidden;
@@ -96,15 +99,19 @@
     display: flex;
     justify-content: center;
     overflow-x: visible;
-    gap: 1.25rem;
+    gap: 16px;
+    width: 1240px;
+    height: 380px;
+    margin: 0 auto;
     padding-bottom: 0;
   }
 
   .reason-card {
-    flex: 0 0 320px;
-    /* Fixed width for desktop to be wider for single-line titles */
-    max-width: 320px;
-    min-width: 320px;
+    flex: 1;
+    /* Flexible width for desktop to be wider for single-line titles */
+    max-width: none;
+    min-width: 0;
+    height: 100%;
   }
 
   .card-title {
@@ -121,7 +128,8 @@
   height: 60px;
   display: flex;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .card-logo-img {

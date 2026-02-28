@@ -56,9 +56,15 @@
 /* Slider Layout */
 .slider-wrapper {
   width: 100%;
-  max-width: 1000px;
+  max-width: 1240px;
   margin: 0 auto;
   padding: 0 1rem;
+}
+
+@media (min-width: 1024px) {
+  .slider-wrapper {
+    padding: 0;
+  }
 }
 
 .slider-container {
@@ -79,8 +85,9 @@
 
 @media (min-width: 768px) {
   .slider-container {
-    aspect-ratio: 16/7;
-    /* Desktop aspect ratio (landscape wide) */
+    height: 460px;
+    border-radius: 8px;
+    aspect-ratio: unset;
   }
 }
 

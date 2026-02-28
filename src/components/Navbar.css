@@ -13,11 +13,13 @@
 }
 
 .navbar-container {
-  border-radius: 8px;
-  padding: 0.5rem 2rem;
-  margin: 0 auto;
-  max-width: 1320px;
+  border-radius: 6px;
+  padding: 0 40px;
+  margin: 20px auto 0;
+  max-width: 1240px;
   width: 95%;
+  height: 80px;
+  border: 1px solid var(--color-glass-border);
   transition: all 0.3s ease;
 }
 
@@ -70,7 +72,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 64px;
+  height: 80px;
+  max-width: 1160px;
+  margin: 0 auto;
 }
 
 /* Logo Styles */
@@ -91,7 +95,9 @@
 .desktop-menu {
   display: none;
   align-items: center;
-  gap: 2rem;
+  flex: 1;
+  justify-content: flex-end;
+  gap: 2.5rem;
 }
 
 @media (min-width: 1024px) {
@@ -148,10 +154,14 @@
   display: none;
 }
 
+.desktop-cta {
+  display: none;
+}
+
 @media (min-width: 1024px) {
-  .help-item {
+  .desktop-cta {
     display: flex;
-    margin-right: 1.5rem;
+    align-items: center;
   }
 }
 
@@ -159,14 +169,10 @@
   border-radius: 4px;
   font-size: 0.875rem;
   padding: 0.5rem 1rem;
-  display: none;
+  align-items: center;
 }
 
-@media (min-width: 768px) {
-  .cta-button {
-    display: flex;
-  }
-}
+
 
 .cta-icon {
   margin-left: 0.5rem;

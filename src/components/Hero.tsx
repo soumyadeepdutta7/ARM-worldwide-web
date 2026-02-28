@@ -7,7 +7,7 @@ export default function Hero() {
             <div className="hero-overlay"></div>
             <div className="hero-content container">
                 <h1 className="hero-title">
-                    Imagine <span className="highlight-text">Windows.</span> Not <span className="highlight-text">Walls.</span>
+                    Imagine <span className="highlight-text">Windows.</span><br className="mobile-only" /> Not <span className="highlight-text">Walls.</span>
                 </h1>
                 <p className="hero-subtitle">
                     Luxury aluminium windows and doors designed to bring in light, views and lasting strength.

@@ -46,19 +46,17 @@ export default function Navbar() {
             <div className="nav-item">
               <a href="#news">News and Events</a>
             </div>
-          </div>
-
-          {/* CTA Button and Help */}
-          <div className="navbar-actions">
-            <div className="nav-item help-item">
+            <div className="nav-item">
               <a href="#help">Help</a>
             </div>
-            <button className="btn btn-primary cta-button">
+            <button className="btn btn-primary cta-button desktop-cta">
               Book a Consultation
               <ArrowRight className="cta-icon" size={16} />
             </button>
+          </div>
 
-            {/* Mobile Menu Toggle */}
+          {/* Mobile Actions Only */}
+          <div className="navbar-actions">
             <div className="mobile-actions">
               <img
                 src="/images/logos/Aditya-birla.svg"
